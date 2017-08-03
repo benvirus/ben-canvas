@@ -1,0 +1,24 @@
+{
+  "name": "ben-canvas",
+  "version": "1.0.0",
+  "description": "a canvas tool lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@coding.codeages.net:qiqiu-video-player/ben-canvas.git"
+  },
+  "keywords": [
+    "canvas",
+    "tool",
+    "lib",
+    "line",
+    "rect",
+    "text",
+    "ease"
+  ],
+  "author": "Ben Chen",
+  "license": "ISC"
+}
