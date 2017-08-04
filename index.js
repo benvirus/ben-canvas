@@ -54,7 +54,6 @@ class Canvas {
       options.position.y * canvasHeight,
       options.width * canvasWidth,
       options.height * canvasHeight);
-    ctx.stroke();
     ctx.restore();
   }
 
