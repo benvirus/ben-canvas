@@ -1,4 +1,6 @@
 const COLOR_RED = '#f00';
+const LINE_DEFAULT_WIDTH = 1;
+const EASE_DEFAULT_WIDTH = 20;
 
 const transformText = (ctx, text, width) => {
   let targetStr = text;
@@ -28,7 +30,7 @@ class Canvas {
     ctx.lineJoin = 'round';
     ctx.lineCap = 'square';
     ctx.strokeStyle = options.color || COLOR_RED;
-    ctx.lineWidth = 1;
+    ctx.lineWidth = option.lineWidth || LINE_DEFAULT_WIDTH;
     ctx.globalCompositeOperation = 'source-over';
     ctx.beginPath();
     ctx.moveTo(options.points[0].x * canvasWidth,
@@ -47,7 +49,7 @@ class Canvas {
       canvasHeight = ctx.canvas.height;
     ctx.save();
     ctx.strokeStyle = options.color || COLOR_RED;
-    ctx.lineWidth = 1;
+    ctx.lineWidth = option.lineWidth || LINE_DEFAULT_WIDTH;
     ctx.globalCompositeOperation = 'source-over';
     ctx.strokeRect(
       options.position.x * canvasWidth,
@@ -62,7 +64,7 @@ class Canvas {
     const canvasWidth = ctx.canvas.width,
       canvasHeight = ctx.canvas.height;
     ctx.save();
-    ctx.lineWidth = 10;
+    ctx.lineWidth = option.lineWidth || EASE_DEFAULT_WIDTH;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
     ctx.globalCompositeOperation = 'destination-out';
