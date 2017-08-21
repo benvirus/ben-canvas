@@ -23,14 +23,13 @@ const transformText = (ctx, text, width) => {
 
 class Canvas {
   static line(ctx, options) {
-    console.log('line', options);
     const canvasWidth = ctx.canvas.width,
       canvasHeight = ctx.canvas.height;
     ctx.save();
     ctx.lineJoin = 'round';
     ctx.lineCap = 'square';
     ctx.strokeStyle = options.color || COLOR_RED;
-    ctx.lineWidth = option.lineWidth || LINE_DEFAULT_WIDTH;
+    ctx.lineWidth = options.lineWidth || LINE_DEFAULT_WIDTH;
     ctx.globalCompositeOperation = 'source-over';
     ctx.beginPath();
     ctx.moveTo(options.points[0].x * canvasWidth,
@@ -44,12 +43,11 @@ class Canvas {
   }
 
   static rect(ctx, options) {
-    console.log('rect', options);
     const canvasWidth = ctx.canvas.width,
       canvasHeight = ctx.canvas.height;
     ctx.save();
     ctx.strokeStyle = options.color || COLOR_RED;
-    ctx.lineWidth = option.lineWidth || LINE_DEFAULT_WIDTH;
+    ctx.lineWidth = options.lineWidth || LINE_DEFAULT_WIDTH;
     ctx.globalCompositeOperation = 'source-over';
     ctx.strokeRect(
       options.position.x * canvasWidth,
@@ -60,11 +58,10 @@ class Canvas {
   }
 
   static ease(ctx, options) {
-    console.log('ease');
     const canvasWidth = ctx.canvas.width,
       canvasHeight = ctx.canvas.height;
     ctx.save();
-    ctx.lineWidth = option.lineWidth || EASE_DEFAULT_WIDTH;
+    ctx.lineWidth = options.lineWidth || EASE_DEFAULT_WIDTH;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
     ctx.globalCompositeOperation = 'destination-out';
@@ -80,14 +77,12 @@ class Canvas {
   }
 
   static clear(ctx) {
-    console.log('clear');
     const width = ctx.canvas.clientWidth;
     const height = ctx.canvas.clientHeight;
     ctx.clearRect(0, 0, width, height);
   }
 
   static text(ctx, options) {
-    console.log('text', options);
     let string = options.text;
     ctx.save();
     ctx.font = '14px/18px monospace';
