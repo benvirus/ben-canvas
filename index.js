@@ -83,9 +83,12 @@ class Canvas {
   }
 
   static text(ctx, options) {
+    options.size = options.size || 14;
+    options.lineHeight = options.lineHeight || 18;
     let string = options.text;
     ctx.save();
-    ctx.font = '14px/18px monospace';
+    ctx.textBaseline = "middle";
+    ctx.font = `${options.size}px/${options.lineHeight}px monospace`;
     ctx.globalCompositeOperation = 'source-over';
     ctx.fillStyle = options.color || COLOR_RED;
     if (typeof maxWidth !== 'undefined') {
@@ -94,7 +97,7 @@ class Canvas {
     string.replace(/<br>/g, '\n').split(/\n/).map((value, index) => {
       ctx.fillText(value,
         options.position.x * ctx.canvas.width + 2,
-        options.position.y * ctx.canvas.height + index * 18 + 16);
+        options.position.y * ctx.canvas.height + index * options.lineHeight + options.lineHeight / 2 + 2);
       return null;
     });
     ctx.restore();
