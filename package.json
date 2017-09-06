@@ -1,6 +1,6 @@
 {
   "name": "ben-canvas",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "a canvas tool lib",
   "main": "index.js",
   "scripts": {
