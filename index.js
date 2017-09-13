@@ -85,10 +85,11 @@ class Canvas {
   static text(ctx, options) {
     options.size = options.size || 14;
     options.lineHeight = options.lineHeight || 18;
+    options.font = options.font || '"PingFang SC","Microsoft YaHei","微软雅黑"';
     let string = options.text;
     ctx.save();
-    ctx.textBaseline = "middle";
-    ctx.font = `${options.size}px/${options.lineHeight}px monospace`;
+    ctx.textBaseline = 'middle';
+    ctx.font = `${options.size}px/${options.lineHeight}px ${options.font}`;
     ctx.globalCompositeOperation = 'source-over';
     ctx.fillStyle = options.color || COLOR_RED;
     if (typeof maxWidth !== 'undefined') {
