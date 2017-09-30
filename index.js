@@ -103,6 +103,39 @@ class Canvas {
     });
     ctx.restore();
   }
+  /**
+   * 画椭圆的方法
+   * @param  {CanvasRenderContext} ctx
+   * @param  {Object} options 
+   * {
+   *    points: [{x:xx, y:xx}, {x:xx, y:xx}];
+   * }
+   * @return {void}         无返回参数
+   */
+  static ellipse(ctx, options) {
+    const width = ctx.canvas.width;
+    const height = ctx.canvas.height;
+    ctx.save();
+    ctx.strokeStyle = '#F00';
+    ctx.lineWidth = options.lineWidth || 1;
+    const ellipse = {
+      width: (options.points[1].x - options.points[0].x) * width,
+      height: (options.points[1].y - options.points[0].y) * height
+    };
+    const centerPoint = {
+      x: ((options.points[1].x - options.points[0].x) / 2 + options.points[0].x) * width,
+      y: ((options.points[1].y - options.points[0].y) / 2 + options.points[0].y) * height
+    };
+    ctx.save();
+    ctx.translate(centerPoint.x, centerPoint.y);
+    const rate = ellipse.height / ellipse.width;
+    ctx.transform(1,0,0,rate,0,0);
+    ctx.beginPath();
+    ctx.arc(0, 0, Math.abs(ellipse.width / 2), 0, 2 * Math.PI, false);
+    ctx.restore();
+    ctx.stroke();
+    ctx.restore();
+  }
 }
 
 export default Canvas;
