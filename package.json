@@ -17,7 +17,8 @@
     "line",
     "rect",
     "text",
-    "ease"
+    "ease",
+    "arrow"
   ],
   "author": "Ben Chen",
   "license": "ISC"

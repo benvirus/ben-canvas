@@ -1,7 +1,7 @@
 const COLOR_RED = '#f00';
 const LINE_DEFAULT_WIDTH = 1;
 const EASE_DEFAULT_WIDTH = 20;
-const ARROR_DEFAULT_SIZE = 15;
+const ARROW_DEFAULT_SIZE = 15;
 
 const transformText = (ctx, text, width) => {
   let targetStr = text;
@@ -22,11 +22,11 @@ const transformText = (ctx, text, width) => {
   return string;
 };
 
-const getArrorPoint = (beginPoint, endPoint, par) => {
+const getArrowPoint = (beginPoint, endPoint, par) => {
   const slopyAngle = Math.atan2(endPoint.y - beginPoint.y, endPoint.x - beginPoint.x);
-  const arrorLength = Math.sqrt(Math.pow(endPoint.y - beginPoint.y, 2) + Math.pow(endPoint.x - beginPoint.x, 2));
-  if (arrorLength < (par * 2)) {
-    par = arrorLength / 2;
+  const arrowLength = Math.sqrt(Math.pow(endPoint.y - beginPoint.y, 2) + Math.pow(endPoint.x - beginPoint.x, 2));
+  if (arrowLength < (par * 2)) {
+    par = arrowLength / 2;
   }
   const angle = 0.6;
   const innerAngle = 0.3;
@@ -71,10 +71,10 @@ class Canvas {
     ctx.restore();
   }
 
-  static arror(ctx, options) {
+  static arrow(ctx, options) {
     const canvasWidth = ctx.canvas.width,
       canvasHeight = ctx.canvas.height;
-    const arrorSize = options.arrorSize || ARROR_DEFAULT_SIZE;
+    const arrowSize = options.arrowSize || ARROW_DEFAULT_SIZE;
     ctx.save();
     ctx.strokeStyle = options.color || COLOR_RED;
     ctx.fillStyle = options.color || COLOR_RED
@@ -95,18 +95,18 @@ class Canvas {
       ctx.closePath();
       ctx.fill();
     }
-    const drawArror = (ctx, stopPoint, beginPoint, arrorSize) => {
-      const polygonVertex = getArrorPoint(beginPoint, stopPoint, arrorSize);
+    const drawArrow = (ctx, stopPoint, beginPoint, arrowSize) => {
+      const polygonVertex = getArrowPoint(beginPoint, stopPoint, arrowSize);
       paintArrar(ctx, polygonVertex);
     }
     for (let i = 1; i < options.points.length; i++) {
-      drawArror(ctx, {
+      drawArrow(ctx, {
         x: options.points[i].x * canvasWidth,
         y: options.points[i].y * canvasHeight,
       }, {
           x: options.points[i - 1].x * canvasWidth,
           y: options.points[i - 1].y * canvasHeight,
-        }, arrorSize);
+        }, arrowSize);
     }
     ctx.restore();
   }
