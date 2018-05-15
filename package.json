@@ -1,6 +1,6 @@
 {
   "name": "ben-canvas",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "a canvas tool lib",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,8 @@
     "line",
     "rect",
     "text",
-    "ease"
+    "ease",
+    "arrow"
   ],
   "author": "Ben Chen",
   "license": "ISC"
