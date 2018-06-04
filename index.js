@@ -185,7 +185,7 @@ class Canvas {
     const width = ctx.canvas.width;
     const height = ctx.canvas.height;
     ctx.save();
-    ctx.strokeStyle = '#F00';
+    ctx.strokeStyle = options.color || COLOR_RED;
     ctx.lineWidth = options.lineWidth || 1;
     const ellipse = {
       width: (options.points[1].x - options.points[0].x) * width,
