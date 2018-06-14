@@ -188,8 +188,8 @@ class Canvas {
     ctx.strokeStyle = options.color || COLOR_RED;
     ctx.lineWidth = options.lineWidth || 1;
     const ellipse = {
-      width: (options.points[1].x - options.points[0].x) * width,
-      height: (options.points[1].y - options.points[0].y) * height
+      width: (options.points[1].x - options.points[0].x) * width || 1,
+      height: (options.points[1].y - options.points[0].y) * height || 1,
     };
     const centerPoint = {
       x: ((options.points[1].x - options.points[0].x) / 2 + options.points[0].x) * width,
