@@ -25,9 +25,6 @@ const transformText = (ctx, text, width) => {
 const getArrowPoint = (beginPoint, endPoint, par) => {
   const slopyAngle = Math.atan2(endPoint.y - beginPoint.y, endPoint.x - beginPoint.x);
   const arrowLength = Math.sqrt(Math.pow(endPoint.y - beginPoint.y, 2) + Math.pow(endPoint.x - beginPoint.x, 2));
-  if (arrowLength < (par * 2)) {
-    par = arrowLength / 2;
-  }
   const angle = 0.6;
   const innerAngle = 0.3;
   const innerPar = par / 3 * 2;
