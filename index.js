@@ -56,6 +56,9 @@ class Canvas {
     ctx.lineCap = 'square';
     ctx.strokeStyle = options.color || COLOR_RED;
     ctx.lineWidth = options.lineWidth || LINE_DEFAULT_WIDTH;
+    if (options.thick) {
+      ctx.lineWidth = options.thick * Math.min(canvasHeight, canvasWidth);
+    }
     ctx.globalCompositeOperation = 'source-over';
     ctx.beginPath();
     ctx.moveTo(options.points[0].x * canvasWidth,
@@ -76,6 +79,9 @@ class Canvas {
     ctx.strokeStyle = options.color || COLOR_RED;
     ctx.fillStyle = options.color || COLOR_RED
     ctx.lineWidth = options.lineWidth || LINE_DEFAULT_WIDTH;
+    if (options.thick) {
+      ctx.lineWidth = options.thick * Math.min(canvasHeight, canvasWidth);
+    }
     ctx.globalCompositeOperation = 'source-over';
     ctx.beginPath();
     ctx.moveTo(options.points[0].x * canvasWidth,
@@ -114,6 +120,9 @@ class Canvas {
     ctx.save();
     ctx.strokeStyle = options.color || COLOR_RED;
     ctx.lineWidth = options.lineWidth || LINE_DEFAULT_WIDTH;
+    if (options.thick) {
+      ctx.lineWidth = options.thick * Math.min(canvasHeight, canvasWidth);
+    }
     ctx.globalCompositeOperation = 'source-over';
     ctx.strokeRect(
       options.position.x * canvasWidth,
@@ -128,6 +137,9 @@ class Canvas {
       canvasHeight = ctx.canvas.height;
     ctx.save();
     ctx.lineWidth = options.lineWidth || EASE_DEFAULT_WIDTH;
+    if (options.thick) {
+      ctx.lineWidth = options.thick * Math.min(canvasHeight, canvasWidth);
+    }
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
     ctx.globalCompositeOperation = 'destination-out';
@@ -184,6 +196,9 @@ class Canvas {
     ctx.save();
     ctx.strokeStyle = options.color || COLOR_RED;
     ctx.lineWidth = options.lineWidth || 1;
+    if (options.thick) {
+      ctx.lineWidth = options.thick * Math.min(canvasHeight, canvasWidth);
+    }
     const ellipse = {
       width: (options.points[1].x - options.points[0].x) * width || 1,
       height: (options.points[1].y - options.points[0].y) * height || 1,
